@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import { Col, Row, Container, Card, Spinner, Button, Modal, Form } from "react-bootstrap";
 import UserContext from "../../Context/User/userContext";
 import axios from "axios";
+import baseurl from "../../config"; // adjust path as needed
 
 const MyBookings = () => {
     const { users } = useContext(UserContext);
@@ -20,9 +21,7 @@ const MyBookings = () => {
     const [originalStatus, setOriginalStatus] = useState("");
     const [showChatModal, setShowChatModal] = useState(false);
     const [chatMessages, setChatMessages] = useState([]);
-    const [chatInput, setChatInput] = useState("");
-
-    const baseurl = "https://cliq-rhp7.onrender.com"; // update if different
+    const [chatInput, setChatInput] = useState(""); 
 
     const fetchAppointments = async () => {
         try {
@@ -60,6 +59,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         fetchAppointments();
+        // eslint-disable-next-line
     }, [users]);
 
     const handleOpenModal = (appointment) => {
@@ -135,6 +135,7 @@ const MyBookings = () => {
         if (showChatModal) {
             fetchMessages();
         }
+        // eslint-disable-next-line
     }, [showChatModal, selectedAppointment]);
 
     // Auto-scroll whenever chatMessages change

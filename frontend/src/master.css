@@ -24,6 +24,8 @@
   color: white;
 }
 
+
+
 .main-section {
   /* background-color: #282c34; */
   min-height: 85vh;
@@ -60,6 +62,9 @@
   color: #62c7e3;
 }
 
+.navbar-toggler{
+  background-color: #fff !important;
+}
 .navbar a:active,
 .navbar a:focus {
   color: #fff;
@@ -401,4 +406,25 @@ body {
 .list-group-item:hover {
   background-color: #f8f9fa;
   transition: background-color 0.2s ease;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-collapse {
+    margin-left: 0px;
+  }
+  .navbar-nav{ 
+    padding: 30px 0;
+  }
+  .hero, .why-choose-us, .highlights, .testimonials .slides {
+    display: block !important; 
+  }
+  .hero img, .why-choose-us img, .why-choose-content, .highlight-box, .testimonial-card{
+    width: 100%;
+  }
+  .highlight-box{
+    margin-bottom: 20px;
+  }
+  .services-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -8,6 +8,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
+import baseurl from "../../config"; // adjust path as needed
 
 const ManageBookings = () => {
     const { users } = useContext(UserContext);
@@ -15,8 +16,7 @@ const ManageBookings = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedAppointments, setSelectedAppointments] = useState([]);
     const [selectedDateStr, setSelectedDateStr] = useState("");
-    const [updatedAppointments, setUpdatedAppointments] = useState({});
-    const host = "https://cliq-rhp7.onrender.com";
+    const [updatedAppointments, setUpdatedAppointments] = useState({}); 
 
     const statusOptions = ["Pending", "Approved", "In Process", "Rejected", "Cancelled", "Completed"];
 
@@ -24,7 +24,7 @@ const ManageBookings = () => {
     const fetchAppointments = useCallback(() => {
         if (!users?._id) return;
 
-        axios.get(`${host}/web-api/appointment/show/provider/${users._id}`)
+        axios.get(`${baseurl}/web-api/appointment/show/provider/${users._id}`)
             .then(res => {
                 const data = res.data.data || [];
 
@@ -45,11 +45,7 @@ const ManageBookings = () => {
         fetchAppointments();
     }, [fetchAppointments]);
 
-    // const formatTime = (datetime) => {
-    //     const dateObj = new Date(datetime);
-    //     return dateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    // };
-
+    
     const handleDateClick = (arg) => {
         const clickedDateStr = arg.dateStr;
 
@@ -101,7 +97,7 @@ const ManageBookings = () => {
         // Combine as "YYYY-MM-DD HH:mm" and send to backend
         const appointment_datetime = `${date} ${time}`;
     
-        axios.put(`${host}/web-api/appointment/update/${id}`, {
+        axios.put(`${baseurl}/web-api/appointment/update/${id}`, {
             appointment_datetime,
             status
         })

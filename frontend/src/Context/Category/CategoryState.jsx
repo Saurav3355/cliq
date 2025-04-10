@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import CategoryContext from "./categoryContext";
+import baseurl from "../../config"; // adjust path as needed
 
 const CategoryState = (props) => {
     const categoryInitial = []
     const [categorys, categoryData] = useState(categoryInitial);
-    const [allCategorys, allCategoryData] = useState(categoryInitial)
-    const host = "https://cliq-rhp7.onrender.com"
+    const [allCategorys, allCategoryData] = useState(categoryInitial) 
 
     // Add Category 
     const addCategory = async (categoryData, setError, navigate) => {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch(`${host}/api/category/add`, {
+            const response = await fetch(`${baseurl}/api/category/add`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const CategoryState = (props) => {
     const getAllCategorys = async () => {
         try {
             // const token = localStorage.getItem("token");
-            const response = await fetch(`${host}/api/category/show`, {
+            const response = await fetch(`${baseurl}/api/category/show`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

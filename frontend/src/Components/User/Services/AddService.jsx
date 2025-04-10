@@ -3,6 +3,7 @@ import ServiceContext from "../../../Context/Service/serviceContext";
 import Sidebar from "../Sidebar";
 import { Col, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import baseurl from "../../../config"; // adjust path as needed
 
 const AddService = () => {
     const { addService } = useContext(ServiceContext);
@@ -23,7 +24,7 @@ const AddService = () => {
 
     // Fetch categories
     useEffect(() => {
-        fetch("https://cliq-rhp7.onrender.com/api/category/show")
+        fetch(`${baseurl}/api/category/show`)
             .then((res) => res.json())
             .then((data) => setCategories(data.data || []))
             .catch((err) => console.error("Error fetching categories:", err));

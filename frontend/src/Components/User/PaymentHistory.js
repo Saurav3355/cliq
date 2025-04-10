@@ -3,15 +3,14 @@ import { Col, Row, Spinner, Alert, Card, Table, Badge } from "react-bootstrap";
 import UserContext from "../../Context/User/userContext";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import baseurl from "../../config"; // adjust path as needed
 
 const PaymentHistory = () => {
     const { users } = useContext(UserContext);
     const [payments, setPayments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
-
-    const baseurl = "https://cliq-rhp7.onrender.com"; // Replace if needed
-
+ 
     useEffect(() => {
         const fetchPayments = async () => {
             try {

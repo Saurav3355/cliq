@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import { Col, Row, Container, Table, Button, Modal, Form } from "react-bootstrap";
-import axios from "axios";
-import { FaEnvelope, FaPhone, FaPhoneAlt, FaUser } from "react-icons/fa";
+import axios from "axios"; 
+import baseurl from "../../config"; // adjust path as needed
 
 const ManageTickets = () => {
     const [tickets, setTickets] = useState([]);
     const [selectedTicket, setSelectedTicket] = useState(null);
     const [showModal, setShowModal] = useState(false);
-    const [newStatus, setNewStatus] = useState("");
-    const host = "https://cliq-rhp7.onrender.com";
+    const [newStatus, setNewStatus] = useState(""); 
 
     const fetchTickets = async () => {
         try {
-            const res = await axios.get(`${host}/web-api/ticket/all`);
+            const res = await axios.get(`${baseurl}/web-api/ticket/all`);
             if (res.data.success) {
                 setTickets(res.data.data);
             }
@@ -25,7 +24,7 @@ const ManageTickets = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this ticket?")) return;
         try {
-            await axios.delete(`${host}/web-api/ticket/delete/${id}`);
+            await axios.delete(`${baseurl}/web-api/ticket/delete/${id}`);
             fetchTickets();
         } catch (err) {
             console.error("Delete error:", err.message);
@@ -35,7 +34,7 @@ const ManageTickets = () => {
     const handleSendToAdmin = async (id) => {
         if (!window.confirm("Are you sure you want to Send this ticket to admin?")) return;
         try {
-            await axios.put(`${host}/web-api/ticket/sendtoadmin/${id}`, {
+            await axios.put(`${baseurl}/web-api/ticket/sendtoadmin/${id}`, {
                 status: 'Send To Admin'
             });
             setShowModal(false);
@@ -48,7 +47,7 @@ const ManageTickets = () => {
     const handleStatusUpdate = async () => {
         if (!newStatus || !selectedTicket) return;
         try {
-            await axios.put(`${host}/web-api/ticket/update-status/${selectedTicket._id}`, {
+            await axios.put(`${baseurl}/web-api/ticket/update-status/${selectedTicket._id}`, {
                 status: newStatus
             });
             setShowModal(false);

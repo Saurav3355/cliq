@@ -8,11 +8,11 @@ import interactionPlugin from '@fullcalendar/interaction';
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
 import UserContext from "../../Context/User/userContext";
 import axios from 'axios';
+import baseurl from "../../config"; // adjust path as needed
 
 const ServiceDetail = () => {
     const { users } = useContext(UserContext);
-    const { id } = useParams();
-    const baseurl = 'https://cliq-rhp7.onrender.com';
+    const { id } = useParams(); 
     const navigate = useNavigate();
     const [provider, setProvider] = useState(null);
     const [loading, setLoading] = useState(true);

@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import UserContext from "../../Context/User/userContext";
 import Sidebar from "./Sidebar";
 import axios from "axios";
+import baseurl from "../../config"; // adjust path as needed
 
 const TrackEarnings = () => {
     const { users } = useContext(UserContext);
@@ -11,9 +12,7 @@ const TrackEarnings = () => {
     const [totalEarnings, setTotalEarnings] = useState(0);
     const [todayEarnings, setTodayEarnings] = useState(0);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-
-    const baseurl = "https://cliq-rhp7.onrender.com"; // 🔁 Update if different in prod
+    const [error, setError] = useState(""); 
 
     useEffect(() => {
         const fetchEarnings = async () => {

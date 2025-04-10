@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import UserContext from "./userContext";
 import { useNavigate } from "react-router-dom";
+import baseurl from "../../config"; // adjust path as needed
 
 const UserState = (props) => {
     const userInitial = []
     const [users, userData] = useState(userInitial);
     const allUserDataInitial = []
     const [allUsers, allUserData] = useState(allUserDataInitial)
-    const [message, setMessage] = useState("");
-    const host = "https://cliq-rhp7.onrender.com"
+    const [message, setMessage] = useState(""); 
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
     const [loading, setLoading] = useState(true); // NEW
@@ -30,7 +30,7 @@ const UserState = (props) => {
     // Login Module
     const login = async (email, password, setError) => {
         try {
-            const response = await fetch(`${host}/auth/user/login`, {
+            const response = await fetch(`${baseurl}/auth/user/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const UserState = (props) => {
             const token = localStorage.getItem("token");
             if (token) {
                 try {
-                    const response = await fetch(`${host}/auth/user/getuser`, {
+                    const response = await fetch(`${baseurl}/auth/user/getuser`, {
                         method: "GET",
                         headers: {
                             "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const UserState = (props) => {
                 formData.append("profilePicture", updatedData.profilePicture);
             }
 
-            const response = await fetch(`${host}/auth/user/updateinfo/${users._id}`, {
+            const response = await fetch(`${baseurl}/auth/user/updateinfo/${users._id}`, {
                 method: "PUT",
                 headers: {
                     "auth-token": token, // No need to set Content-Type for FormData
@@ -133,7 +133,7 @@ const UserState = (props) => {
                 formData.append("identityProof", updatedData.identityProof);
             }
 
-            const response = await fetch(`${host}/auth/user/updateotherinfo/${users._id}`, {
+            const response = await fetch(`${baseurl}/auth/user/updateotherinfo/${users._id}`, {
                 method: "PUT",
                 headers: {
                     "auth-token": token,
@@ -159,7 +159,7 @@ const UserState = (props) => {
             const token = localStorage.getItem("token");
             if (!users) return;
 
-            const response = await fetch(`${host}/auth/user/update/${users._id}`, {
+            const response = await fetch(`${baseurl}/auth/user/update/${users._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -182,7 +182,7 @@ const UserState = (props) => {
     // Register
     const register = async (userData, setError, navigate, isClient = false) => {
         try {
-            const response = await fetch(`${host}/auth/user/register`, {
+            const response = await fetch(`${baseurl}/auth/user/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -217,7 +217,7 @@ const UserState = (props) => {
     // Get all users
     const getAllUsers = async () => {
         try {
-            const response = await fetch(`${host}/auth/user/show/`, {
+            const response = await fetch(`${baseurl}/auth/user/show/`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

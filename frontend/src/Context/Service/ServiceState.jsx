@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import ServiceContext from "./serviceContext"; 
+import baseurl from "../../config"; // adjust path as needed
 
 const ServiceState = (props) => {
     const serviceInitial = []
     const [services, serviceData] = useState(serviceInitial);
     const allServiceDataInitial = []
-    const [allServices, allServiceData] = useState(allServiceDataInitial)  
-    const host = "https://cliq-rhp7.onrender.com" 
+    const [allServices, allServiceData] = useState(allServiceDataInitial)   
   
     // Add Service
     const addService = async (serviceData, setError, navigate) => {
@@ -26,7 +26,7 @@ const ServiceState = (props) => {
                 formData.append("images", serviceData.images[i]);
             }
     
-            const response = await fetch(`${host}/api/service/add`, {
+            const response = await fetch(`${baseurl}/api/service/add`, {
                 method: "POST",
                 headers: {
                     "auth-token": token // Only include auth-token, NOT content-type
@@ -51,7 +51,7 @@ const ServiceState = (props) => {
     const getAllServices = async () => { 
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch(`${host}/api/service/show`, {
+            const response = await fetch(`${baseurl}/api/service/show`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

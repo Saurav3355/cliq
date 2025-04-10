@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar";
 import { Col, Row } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import baseurl from "../../../config"; // adjust path as needed
 
 const EditService = () => {
     const { id } = useParams();
@@ -23,7 +24,7 @@ const EditService = () => {
     useEffect(() => {
         const fetchService = async () => {
             try {
-                const res = await fetch(`https://cliq-rhp7.onrender.com/api/service/getedititem/${id}`);
+                const res = await fetch(`${baseurl}/api/service/getedititem/${id}`);
                 const data = await res.json();
                 if (res.ok) {
                     setFormData({
@@ -47,7 +48,7 @@ const EditService = () => {
     // Fetch category list
     useEffect(() => {
         const fetchCategories = async () => {
-            const res = await fetch("https://cliq-rhp7.onrender.com/api/category/show");
+            const res = await fetch(`${baseurl}/api/category/show`);
             const data = await res.json();
             setCategories(data.data || []);
         };
@@ -71,7 +72,7 @@ const EditService = () => {
             formDataToSend.append("availability", formData.availability);
             formDataToSend.append("price", formData.price);
 
-            const response = await fetch(`https://cliq-rhp7.onrender.com/api/service/update/${id}`, {
+            const response = await fetch(`${baseurl}/api/service/update/${id}`, {
                 method: "PUT",
                 body: formDataToSend
             });

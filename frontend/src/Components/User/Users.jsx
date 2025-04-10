@@ -14,6 +14,7 @@ import "pdfmake"; // Required for PDF export
 import "pdfmake/build/vfs_fonts"; // Required for PDF fonts
 import "datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 import "datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css";
+import baseurl from "../../config"; // adjust path as needed
 
 const Users = () => {
     const { allUsers, getAllUsers } = useContext(UserContext);
@@ -61,7 +62,7 @@ const Users = () => {
     const deleteUser = async (id) => {
         if (window.confirm("Are you sure you want to delete this user?")) {
             try {
-                const response = await fetch(`https://cliq-rhp7.onrender.com/auth/user/delete/${id}`, {
+                const response = await fetch(`${baseurl}/auth/user/delete/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -88,7 +89,7 @@ const Users = () => {
         const newStatus = currentStatus === "Active" ? "Suspended" : "Active";
         if (window.confirm(`Are you sure you want to ${newStatus.toLowerCase()} this user?`)) {
             try {
-                const response = await fetch(`https://cliq-rhp7.onrender.com/auth/user/status/${id}`, {
+                const response = await fetch(`${baseurl}/auth/user/status/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

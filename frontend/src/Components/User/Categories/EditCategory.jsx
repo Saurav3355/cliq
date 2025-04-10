@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../Sidebar";
 import { Col, Row } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import baseurl from "../../../config"; // adjust path as needed
 
 const EditCategory = () => {
     const { id } = useParams();
@@ -20,7 +21,7 @@ const EditCategory = () => {
             try {
                 const token = localStorage.getItem("token");
 
-                const res = await fetch(`https://cliq-rhp7.onrender.com/api/category/getedititem/${id}`, {
+                const res = await fetch(`${baseurl}/api/category/getedititem/${id}`, {
                     headers: {
                         "auth-token": token
                     }
@@ -53,7 +54,7 @@ const EditCategory = () => {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch(`https://cliq-rhp7.onrender.com/api/category/updatecategory/${id}`, {
+            const response = await fetch(`${baseurl}/api/category/updatecategory/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

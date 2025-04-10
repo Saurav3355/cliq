@@ -11,9 +11,9 @@ import {
     Image,
 } from "react-bootstrap";
 import axios from "axios";
+import baseurl from "../../config"; // adjust path as needed
 
-const ManageServiceProvider = () => {
-    const baseurl = "https://cliq-rhp7.onrender.com";
+const ManageServiceProvider = () => { 
     const [providers, setProviders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
@@ -62,6 +62,7 @@ const ManageServiceProvider = () => {
 
     useEffect(() => {
         fetchProviders();
+        // eslint-disable-next-line
     }, []);
 
     return (

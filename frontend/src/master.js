@@ -11,13 +11,13 @@ import Login from "./Components/Pages/Login";
 import Dashboard from "./Components/User/Dashboard";
 import Settings from "./Components/User/Settings";
 import Profile from "./Components/User/Profile";
-import Ticket from "./Components/Service/Ticket";
+import Contact from "./Components/Service/Contact";
 import Users from "./Components/User/Users";
 import AddUser from "./Components/User/AddUser";
 import Category from "./Components/User/Categories/Category";
 import AddCategory from "./Components/User/Categories/AddCategory";
 import EditCategory from "./Components/User/Categories/EditCategory";
-import ManageServices from "./Components/User/Services/ManageServices";
+// import ManageServices from "./Components/User/Services/ManageServices";
 // import AddService from "./Components/User/Services/AddService";
 // import EditService from "./Components/User/Services/EditService";
 import ExploreServices from "./Components/Pages/ExploreServices";
@@ -49,7 +49,7 @@ function Master() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/explore-services" element={<ExploreServices />} />
         <Route path="/service/:id" element={<ServiceDetail />} />
-        <Route path="/ticket" element={<Ticket />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/unauthorized" element={<Unauthorized />} />

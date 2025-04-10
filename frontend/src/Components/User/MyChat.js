@@ -11,10 +11,10 @@ import {
 } from "react-bootstrap";
 import UserContext from "../../Context/User/userContext";
 import axios from "axios";
+import baseurl from "../../config"; // adjust path as needed
 
 const MyChat = () => {
-    const { users } = useContext(UserContext);
-    const baseurl = "https://cliq-rhp7.onrender.com";
+    const { users } = useContext(UserContext); 
 
     const [clients, setClients] = useState([]);
     const [selectedClient, setSelectedClient] = useState(null);

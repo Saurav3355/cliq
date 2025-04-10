@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../Context/User/userContext";
 import Sidebar from "./Sidebar";
+import baseurl from "../../config"; // adjust path as needed
 
 const Profile = () => {
     const { users, updateProfile, updateOtherDetails } = useContext(UserContext);
@@ -52,7 +53,7 @@ const Profile = () => {
 
     // Fetch categories
     useEffect(() => {
-        fetch("https://cliq-rhp7.onrender.com/api/category/show")
+        fetch(`${baseurl}/api/category/show`)
             .then((res) => res.json())
             .then((data) => setCategories(data.data || []))
             .catch((err) => console.error("Error fetching categories:", err));

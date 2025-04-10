@@ -14,6 +14,7 @@ import "pdfmake"; // Required for PDF export
 import "pdfmake/build/vfs_fonts"; // Required for PDF fonts
 import "datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 import "datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css";
+import baseurl from "../../../config"; // adjust path as needed
 
 const Category = () => {
     const { allCategorys, getAllCategorys } = useContext(CategoryContext);
@@ -61,7 +62,7 @@ const Category = () => {
         if (window.confirm("Are you sure you want to delete this category?")) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`https://cliq-rhp7.onrender.com/api/category/deletecategory/${id}`, {
+                const response = await fetch(`${baseurl}/api/category/deletecategory/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

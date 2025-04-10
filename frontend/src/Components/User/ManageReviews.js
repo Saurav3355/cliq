@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import UserContext from "../../Context/User/userContext";
 import axios from "axios";
+import baseurl from "../../config"; // adjust path as needed
 
 const ManageReviews = () => {
     const { users } = useContext(UserContext);
@@ -20,8 +21,6 @@ const ManageReviews = () => {
     const [deleting, setDeleting] = useState(false);
     const [statusMessage, setStatusMessage] = useState("");
     const [statusVariant, setStatusVariant] = useState("success"); // or "danger"
-
-    const baseurl = "https://cliq-rhp7.onrender.com";
 
     const fetchReviews = async () => {
         try {
@@ -97,6 +96,7 @@ const ManageReviews = () => {
 
     useEffect(() => {
         fetchReviews();
+        // eslint-disable-next-line
     }, [users]);
 
     const renderStars = (rating) => {
