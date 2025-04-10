@@ -16,7 +16,7 @@ const ManageBookings = () => {
     const [selectedAppointments, setSelectedAppointments] = useState([]);
     const [selectedDateStr, setSelectedDateStr] = useState("");
     const [updatedAppointments, setUpdatedAppointments] = useState({});
-    const host = "http://localhost:3100";
+    const host = "https://cliq-rhp7.onrender.com";
 
     const statusOptions = ["Pending", "Approved", "In Process", "Rejected", "Cancelled", "Completed"];
 

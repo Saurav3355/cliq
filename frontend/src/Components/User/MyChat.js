@@ -14,7 +14,7 @@ import axios from "axios";
 
 const MyChat = () => {
     const { users } = useContext(UserContext);
-    const baseurl = "http://localhost:3100";
+    const baseurl = "https://cliq-rhp7.onrender.com";
 
     const [clients, setClients] = useState([]);
     const [selectedClient, setSelectedClient] = useState(null);

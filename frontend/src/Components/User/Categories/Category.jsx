@@ -61,7 +61,7 @@ const Category = () => {
         if (window.confirm("Are you sure you want to delete this category?")) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`http://localhost:3100/api/category/deletecategory/${id}`, {
+                const response = await fetch(`https://cliq-rhp7.onrender.com/api/category/deletecategory/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

@@ -5,7 +5,7 @@ const CategoryState = (props) => {
     const categoryInitial = []
     const [categorys, categoryData] = useState(categoryInitial);
     const [allCategorys, allCategoryData] = useState(categoryInitial)
-    const host = "http://localhost:3100"
+    const host = "https://cliq-rhp7.onrender.com"
 
     // Add Category 
     const addCategory = async (categoryData, setError, navigate) => {

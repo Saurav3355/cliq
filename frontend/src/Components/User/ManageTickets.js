@@ -9,7 +9,7 @@ const ManageTickets = () => {
     const [selectedTicket, setSelectedTicket] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [newStatus, setNewStatus] = useState("");
-    const host = "http://localhost:3100";
+    const host = "https://cliq-rhp7.onrender.com";
 
     const fetchTickets = async () => {
         try {

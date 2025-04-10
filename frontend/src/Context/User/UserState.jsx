@@ -8,7 +8,7 @@ const UserState = (props) => {
     const allUserDataInitial = []
     const [allUsers, allUserData] = useState(allUserDataInitial)
     const [message, setMessage] = useState("");
-    const host = "http://localhost:3100"
+    const host = "https://cliq-rhp7.onrender.com"
     const navigate = useNavigate();
     const token = localStorage.getItem("token");
     const [loading, setLoading] = useState(true); // NEW

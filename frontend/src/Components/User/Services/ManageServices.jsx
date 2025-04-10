@@ -61,7 +61,7 @@ const ManageServices = () => {
         if (window.confirm("Are you sure you want to delete this service?")) {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`http://localhost:3100/api/service/delete/${id}`, {
+                const response = await fetch(`https://cliq-rhp7.onrender.com/api/service/delete/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

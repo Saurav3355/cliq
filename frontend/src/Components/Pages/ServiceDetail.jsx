@@ -12,7 +12,7 @@ import axios from 'axios';
 const ServiceDetail = () => {
     const { users } = useContext(UserContext);
     const { id } = useParams();
-    const baseurl = 'http://localhost:3100';
+    const baseurl = 'https://cliq-rhp7.onrender.com';
     const navigate = useNavigate();
     const [provider, setProvider] = useState(null);
     const [loading, setLoading] = useState(true);

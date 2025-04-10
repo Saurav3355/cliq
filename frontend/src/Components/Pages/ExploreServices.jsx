@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const ExploreServices = () => {
-    const baseurl = 'http://localhost:3100'; // Replace this if needed
+    const baseurl = 'https://cliq-rhp7.onrender.com'; // Replace this if needed
     const filterUrl = `${baseurl}/web-api/service-provider/filters`;
     const serviceUrl = `${baseurl}/web-api/service-provider/filter`;
     const [categories, setCategories] = useState([]);
@@ -40,7 +40,7 @@ const ExploreServices = () => {
 
     // Fetch categories
     useEffect(() => {
-        fetch("http://localhost:3100/api/category/show")
+        fetch("https://cliq-rhp7.onrender.com/api/category/show")
             .then((res) => res.json())
             .then((data) => setCategories(data.data || []))
             .catch((err) => console.error("Error fetching categories:", err));

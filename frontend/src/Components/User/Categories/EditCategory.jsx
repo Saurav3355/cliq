@@ -20,7 +20,7 @@ const EditCategory = () => {
             try {
                 const token = localStorage.getItem("token");
 
-                const res = await fetch(`http://localhost:3100/api/category/getedititem/${id}`, {
+                const res = await fetch(`https://cliq-rhp7.onrender.com/api/category/getedititem/${id}`, {
                     headers: {
                         "auth-token": token
                     }
@@ -53,7 +53,7 @@ const EditCategory = () => {
         try {
             const token = localStorage.getItem("token");
 
-            const response = await fetch(`http://localhost:3100/api/category/updatecategory/${id}`, {
+            const response = await fetch(`https://cliq-rhp7.onrender.com/api/category/updatecategory/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

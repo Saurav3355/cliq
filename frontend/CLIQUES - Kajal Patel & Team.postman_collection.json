@@ -2698,7 +2698,7 @@
 		},
 		{
 			"key": "baseurl",
-			"value": "http://localhost:3100/",
+			"value": "https://cliq-rhp7.onrender.com/",
 			"type": "string"
 		},
 		{

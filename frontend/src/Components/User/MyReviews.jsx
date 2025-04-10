@@ -19,7 +19,7 @@ const MyReviews = () => {
     const [error, setError] = useState("");
     const [deleting, setDeleting] = useState(false);
 
-    const baseurl = "http://localhost:3100";
+    const baseurl = "https://cliq-rhp7.onrender.com";
 
     const fetchReviews = async () => {
         try {

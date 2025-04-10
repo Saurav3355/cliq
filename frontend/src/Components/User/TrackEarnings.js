@@ -13,7 +13,7 @@ const TrackEarnings = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    const baseurl = "http://localhost:3100"; // 🔁 Update if different in prod
+    const baseurl = "https://cliq-rhp7.onrender.com"; // 🔁 Update if different in prod
 
     useEffect(() => {
         const fetchEarnings = async () => {

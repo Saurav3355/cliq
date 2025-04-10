@@ -23,7 +23,7 @@ const EditService = () => {
     useEffect(() => {
         const fetchService = async () => {
             try {
-                const res = await fetch(`http://localhost:3100/api/service/getedititem/${id}`);
+                const res = await fetch(`https://cliq-rhp7.onrender.com/api/service/getedititem/${id}`);
                 const data = await res.json();
                 if (res.ok) {
                     setFormData({
@@ -47,7 +47,7 @@ const EditService = () => {
     // Fetch category list
     useEffect(() => {
         const fetchCategories = async () => {
-            const res = await fetch("http://localhost:3100/api/category/show");
+            const res = await fetch("https://cliq-rhp7.onrender.com/api/category/show");
             const data = await res.json();
             setCategories(data.data || []);
         };
@@ -71,7 +71,7 @@ const EditService = () => {
             formDataToSend.append("availability", formData.availability);
             formDataToSend.append("price", formData.price);
 
-            const response = await fetch(`http://localhost:3100/api/service/update/${id}`, {
+            const response = await fetch(`https://cliq-rhp7.onrender.com/api/service/update/${id}`, {
                 method: "PUT",
                 body: formDataToSend
             });

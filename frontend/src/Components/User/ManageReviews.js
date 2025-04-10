@@ -21,7 +21,7 @@ const ManageReviews = () => {
     const [statusMessage, setStatusMessage] = useState("");
     const [statusVariant, setStatusVariant] = useState("success"); // or "danger"
 
-    const baseurl = "http://localhost:3100";
+    const baseurl = "https://cliq-rhp7.onrender.com";
 
     const fetchReviews = async () => {
         try {

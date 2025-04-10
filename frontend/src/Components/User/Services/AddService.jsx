@@ -23,7 +23,7 @@ const AddService = () => {
 
     // Fetch categories
     useEffect(() => {
-        fetch("http://localhost:3100/api/category/show")
+        fetch("https://cliq-rhp7.onrender.com/api/category/show")
             .then((res) => res.json())
             .then((data) => setCategories(data.data || []))
             .catch((err) => console.error("Error fetching categories:", err));

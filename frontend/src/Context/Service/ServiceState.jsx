@@ -6,7 +6,7 @@ const ServiceState = (props) => {
     const [services, serviceData] = useState(serviceInitial);
     const allServiceDataInitial = []
     const [allServices, allServiceData] = useState(allServiceDataInitial)  
-    const host = "http://localhost:3100" 
+    const host = "https://cliq-rhp7.onrender.com" 
   
     // Add Service
     const addService = async (serviceData, setError, navigate) => {

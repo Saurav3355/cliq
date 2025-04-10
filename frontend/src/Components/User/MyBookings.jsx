@@ -22,7 +22,7 @@ const MyBookings = () => {
     const [chatMessages, setChatMessages] = useState([]);
     const [chatInput, setChatInput] = useState("");
 
-    const baseurl = "http://localhost:3100"; // update if different
+    const baseurl = "https://cliq-rhp7.onrender.com"; // update if different
 
     const fetchAppointments = async () => {
         try {

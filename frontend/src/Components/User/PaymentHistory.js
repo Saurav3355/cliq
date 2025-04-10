@@ -10,7 +10,7 @@ const PaymentHistory = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
-    const baseurl = "http://localhost:3100"; // Replace if needed
+    const baseurl = "https://cliq-rhp7.onrender.com"; // Replace if needed
 
     useEffect(() => {
         const fetchPayments = async () => {

@@ -13,7 +13,7 @@ import {
 import axios from "axios";
 
 const ManageServiceProvider = () => {
-    const baseurl = "http://localhost:3100";
+    const baseurl = "https://cliq-rhp7.onrender.com";
     const [providers, setProviders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
