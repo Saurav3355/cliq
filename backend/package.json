@@ -1,13 +1,13 @@
 {
   "name": "employee_backend",
   "version": "1.0.0",
-  "description": "EMS backend - made by hitkumar savaliya",
+  "description": "EMS backend - made by Team 7",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "serve": "nodemon server.js"
   },
-  "author": "Team7",
+  "author": "Team 7",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -22,5 +22,8 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "supertest": "^7.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
