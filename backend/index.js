@@ -1,16 +1,12 @@
 const connectToMongo = require('./db'); 
 const express = require('express');
-var cors = require('cors')
-
+const cors = require('cors');
 
 connectToMongo();
-const app = express()
- 
-app.use(cors())
-const port = 3100
+const app = express();
 
-app.use(express.json());   // middleware for use of request body - If you want to use request body then you have to include it.
-
+app.use(cors());
+app.use(express.json()); // middleware for request body
 
 // Admin Auth Routes
 app.use("/auth/user/", require("./routes/user/user")); 
@@ -20,7 +16,6 @@ app.use('/api/employee/', require('./routes/employee/employee'));
 app.use('/api/service/', require('./routes/service/service'));
 app.use('/api/category/', require('./routes/service/category'));
 
-
 // Web API Routes
 app.use('/web-api/category/', require('./routes/website/category'));
 app.use('/web-api/service/', require('./routes/website/service'));
@@ -28,10 +23,7 @@ app.use('/web-api/service-provider/', require('./routes/website/serviceProvider'
 app.use('/web-api/appointment/', require('./routes/website/appointment')); 
 app.use('/web-api/ticket/', require('./routes/website/ticket')); 
 app.use('/web-api/review/', require('./routes/website/review')); 
+app.use('/chat/', require('./routes/website/message'));
 
-app.use('/chat/', require('./routes/website/message')); 
-
-
-app.listen(port, () => {
-    console.log(`App listening on port http://localhost:${port}`)
-})
+// ✅ Export app only (NO listen here)
+module.exports = app;
