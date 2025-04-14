@@ -7,11 +7,11 @@ describe('Employee API', () => {
     const res = await request(app)
       .post('/api/employee/add')
       .send({
-        first_name: "John",
-        last_name: "Doe",
+        first_name: "WILL",
+        last_name: "SMITH",
         age: 30,
         date_of_join: "2024-01-01",
-        title: "Software Engineer",
+        title: "MECHANICAL Engineer",
         department: "Engineering",
         employee_type: "Full-Time"
       });
